@@ -14,7 +14,7 @@ public class BestTimetoBuyandSellStock {
             }
             else if(j - min > max){
                 max = j - min;
-                total_max = total_max + max;
+                total_max = max;
             }
         }
         return total_max;

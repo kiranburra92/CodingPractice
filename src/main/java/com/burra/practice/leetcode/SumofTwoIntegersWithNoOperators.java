@@ -1,7 +1,5 @@
 package com.burra.practice.leetcode;
 
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
-
 public class SumofTwoIntegersWithNoOperators {
     public int getSum(int a, int b) {
         while (b != 0){

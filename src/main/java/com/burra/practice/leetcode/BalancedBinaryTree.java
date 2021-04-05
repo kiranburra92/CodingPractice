@@ -25,4 +25,8 @@ public class BalancedBinaryTree {
         return Math.max(height(node.left), height(node.right)) + 1;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
