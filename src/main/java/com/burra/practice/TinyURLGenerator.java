@@ -33,7 +33,7 @@ public class TinyURLGenerator {
             if(c >= 'a' && c<= 'z')
                 n = n*62 + (int)c - (int)'a';
             if(c >= 'A' && c<= 'Z')
-                n = n*62 + (int)c - (int)'A' + 24;
+                n = n*62 + (int)c - (int)'A' + 26;
             if(c >= '0' && c<= '9')
                 n = n*62 + (int)c - (int)'9' + 52;
         }

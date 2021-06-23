@@ -23,7 +23,7 @@ public class ConvertSortedArraytoBinarySearchTree {
     public TreeNode sortedArrayToBst(int[] nums, int lower, int upper) {
         TreeNode node = null;
         if (lower > upper)
-            return node;
+            return null;
         node = new TreeNode(nums[(lower + upper) / 2]);
         node.left = sortedArrayToBst(nums, lower, (upper + lower) / 2 - 1);
         node.right = sortedArrayToBst(nums, (upper + lower) / 2 + 1, upper);

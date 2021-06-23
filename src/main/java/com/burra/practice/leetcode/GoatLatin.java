@@ -51,6 +51,6 @@ public class GoatLatin {
             }
             list.add(sb);
         }
-        return list.stream().map(str -> str.toString()).collect(Collectors.joining(" "));
+        return list.stream().map(StringBuilder::toString).collect(Collectors.joining(" "));
     }
 }

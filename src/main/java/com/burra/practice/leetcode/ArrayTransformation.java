@@ -12,6 +12,7 @@ import java.util.List;
  * return list of elements if non of the array elements changed.
  */
 public class ArrayTransformation {
+    // ?????????????? //
     public List<Integer> transformArray(int[] arr) {
         int[] myarr = Arrays.copyOfRange(arr, 0, arr.length);
         List<Integer> list = new ArrayList<>();

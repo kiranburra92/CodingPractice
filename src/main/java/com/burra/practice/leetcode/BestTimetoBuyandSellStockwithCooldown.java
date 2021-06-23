@@ -16,15 +16,19 @@ package com.burra.practice.leetcode;
  */
 public class BestTimetoBuyandSellStockwithCooldown {
     public int maxProfit(int[] prices) {
-        int val = 0;
-        boolean flag = true;
-        int buy = 0;
-        for(int i = 0 ; i < prices.length ; i++){
-            if(!flag && prices[i-1] < prices[i]) {
-                val += prices[i-1];
-                i++;
-            }
+        if (prices == null || prices.length <= 1) return 0;
+        final int N = prices.length;
+        int[] buy = new int[N];
+        int[] hold = new int[N]; // hold stock after buying
+        int[] sell = new int[N];
+        int[] wait = new int[N]; // wait (cooldown) after selling
+        buy[0] = hold[0] = -prices[0];
+        for (int i = 1; i < N; i++) {
+            buy[i] = wait[i-1] - prices[i];
+            hold[i] = Math.max(hold[i-1], buy[i-1]);
+            sell[i] = Math.max(hold[i-1], buy[i-1]) + prices[i];
+            wait[i] = Math.max(wait[i-1], sell[i-1]);
         }
-        return val;
+        return Math.max(sell[N-1], wait[N-1]);
     }
 }

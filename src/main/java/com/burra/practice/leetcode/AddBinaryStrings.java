@@ -8,7 +8,7 @@ public class AddBinaryStrings {
         int j = b.length()-1;
         while (i>=0 || j>=0){
             int temp = carry;
-              temp += (i>=0) ? a.charAt(i) -'0' : 0;
+            temp += (i>=0) ? a.charAt(i) -'0' : 0;
             temp +=  (j>=0) ? b.charAt(j) - '0' : 0;
             carry = temp/2;
             result = temp%2+result;

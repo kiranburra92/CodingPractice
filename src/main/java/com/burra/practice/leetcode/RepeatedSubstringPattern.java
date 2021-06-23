@@ -10,7 +10,7 @@ package com.burra.practice.leetcode;
  * Example 1:
  *
  * Input: "abab"
- * Output: True
+ * Output: Truea
  * Explanation: It's the substring "ab" twice.
  *
  * Example 2:

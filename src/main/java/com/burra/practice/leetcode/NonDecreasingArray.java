@@ -5,21 +5,19 @@ import java.util.List;
 
 public class NonDecreasingArray {
     public boolean checkPossibility(int... nums){
-        int count = 0;
-        for(int i=0; i< nums.length-1; i++){
-            if(nums[i] > nums[i+1]){
-                if(i >0){
-                    if(nums[i-1] < nums[i+1]){
-                        nums[i] = nums[i-1];
-                    }
-                    else{
-                        nums[i+1] = nums[i];
-                    }
-                }
-                count++;
+        int flag = 0;
+        int n = nums.length;
+
+        for (int i =0 ; i<n-1;i++) {
+            if(nums[i] > nums[i+1]) {
+                flag++;
+                if (i > 0 && (nums[i + 1] < nums[i - 1]))
+                    nums[i + 1] = nums[i];
             }
+            if(flag > 1)
+                return false;
         }
-        return (count <=1);
+        return true;
     }
 
     public static void main(String args[]) {
