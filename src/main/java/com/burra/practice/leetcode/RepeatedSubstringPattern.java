@@ -1,28 +1,24 @@
 package com.burra.practice.leetcode;
 
 /**
- * Given a non-empty string check if it can be constructed by taking a substring
- * of it and appending multiple copies of the substring together. You may assume
- * the given string consists of lowercase English letters only and its length will not exceed 10000.
- *
- *
- *
+ * Given a non-empty string check if it can be constructed by taking a substring of it and appending multiple copies of
+ * the substring together. You may assume the given string consists of lowercase English letters only and its length
+ * will not exceed 10000.
+ * <p>
+ * <p>
+ * <p>
  * Example 1:
- *
- * Input: "abab"
- * Output: Truea
- * Explanation: It's the substring "ab" twice.
- *
+ * <p>
+ * Input: "abab" Output: Truea Explanation: It's the substring "ab" twice.
+ * <p>
  * Example 2:
- *
- * Input: "aba"
- * Output: False
- *
+ * <p>
+ * Input: "aba" Output: False
+ * <p>
  * Example 3:
- *
- * Input: "abcabcabcabc"
- * Output: True
- * Explanation: It's the substring "abc" four times. (And the substring "abcabc" twice.)
+ * <p>
+ * Input: "abcabcabcabc" Output: True Explanation: It's the substring "abc" four times. (And the substring "abcabc"
+ * twice.)
  */
 
 /**
@@ -46,20 +42,22 @@ package com.burra.practice.leetcode;
  * If the repeated substring is equals to the inputstrreturntrue
  */
 public class RepeatedSubstringPattern {
-    public boolean repeatedSubstringPattern(String s) {
-        int l = s.length();
-        for(int i = l/2; i>=1; i--) {
-            if(l%i == 0){
-                int m = l/i;
-                String subStr = s.substring(0,i);
-                StringBuilder sb = new StringBuilder();
-                for(int j =0; j<m ; j++) {
-                    sb.append(subStr);
-                }
-                if(sb.toString().equals(s))
-                    return true;
-            }
+
+  public boolean repeatedSubstringPattern(String s) {
+    int l = s.length();
+    for (int i = l / 2; i >= 1; i--) {
+      if (l % i == 0) {
+        int m = l / i;
+        String subStr = s.substring(0, i);
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < m; j++) {
+          sb.append(subStr);
         }
-        return false;
+        if (sb.toString().equals(s)) {
+          return true;
+        }
+      }
     }
+    return false;
+  }
 }

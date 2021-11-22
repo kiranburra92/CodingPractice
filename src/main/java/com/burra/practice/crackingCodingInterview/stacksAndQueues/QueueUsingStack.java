@@ -3,28 +3,29 @@ package com.burra.practice.crackingCodingInterview.stacksAndQueues;
 import java.util.Stack;
 
 public class QueueUsingStack {
-    private Stack<Integer> oldStack = new Stack<>();
-    private Stack<Integer> newStack = new Stack<>();
 
-    public void add(int val) {
-        newStack.push(val);
-    }
+  private Stack<Integer> oldStack = new Stack<>();
+  private Stack<Integer> newStack = new Stack<>();
 
-    public int remove() {
-        shiftNewtoOld();
-        return oldStack.pop();
-    }
+  public void add(int val) {
+    newStack.push(val);
+  }
 
-    public int peek() {
-        shiftNewtoOld();
-        return oldStack.peek();
-    }
+  public int remove() {
+    shiftNewtoOld();
+    return oldStack.pop();
+  }
 
-    private void shiftNewtoOld() {
-        if (oldStack.isEmpty()) {
-            while (!newStack.isEmpty()) {
-                oldStack.push(newStack.pop());
-            }
-        }
+  public int peek() {
+    shiftNewtoOld();
+    return oldStack.peek();
+  }
+
+  private void shiftNewtoOld() {
+    if (oldStack.isEmpty()) {
+      while (!newStack.isEmpty()) {
+        oldStack.push(newStack.pop());
+      }
     }
+  }
 }

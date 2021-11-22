@@ -1,36 +1,39 @@
 package com.burra.practice.leetcode;
 
 public class InvertBinaryTree {
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
 
-        TreeNode() {
-        }
+  public TreeNode invertTree(TreeNode root) {
+    return inv(root);
+  }
 
-        TreeNode(int val) {
-            this.val = val;
-        }
+  private TreeNode inv(TreeNode head) {
+    if (head == null) {
+      return head;
+    }
+    TreeNode right = inv(head.right);
+    TreeNode left = inv(head.left);
+    head.right = left;
+    head.left = right;
+    return head;
+  }
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
+  public class TreeNode {
+
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {
     }
 
-    public TreeNode invertTree(TreeNode root) {
-        return inv(root);
+    TreeNode(int val) {
+      this.val = val;
     }
 
-    private TreeNode inv(TreeNode head) {
-        if (head == null)
-            return head;
-        TreeNode right = inv(head.right);
-        TreeNode left = inv(head.left);
-        head.right = left;
-        head.left = right;
-        return head;
+    TreeNode(int val, TreeNode left, TreeNode right) {
+      this.val = val;
+      this.left = left;
+      this.right = right;
     }
+  }
 }
