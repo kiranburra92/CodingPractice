@@ -50,7 +50,6 @@ class VerifyinganAlienDictionary {
                 }
             }
         }
-
         return true
     }
 
