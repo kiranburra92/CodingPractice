@@ -16,7 +16,7 @@ class UniquePaths {
         return uniquePaths(m, n, memory)
     }
 
-    fun uniquePaths(m: Int, n: Int, memory: Array<IntArray>): Int {
+    private fun uniquePaths(m: Int, n: Int, memory: Array<IntArray>): Int {
         if(1 > m || 1 > n)
             return 0
         if(1 == m && 1 == n)
