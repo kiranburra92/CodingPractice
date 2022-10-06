@@ -25,24 +25,29 @@ Constraints:
 class LongestConsecutiveSequence {
 
     fun longestConsecutive(nums: IntArray): Int {
-        val booleanArray = BooleanArray(Int.MAX_VALUE - 1)
-        var max = 0
-        var temp = 0
-        nums.forEach { booleanArray[it - 1] = true }
-        for (i in 0 until booleanArray.size - 2) {
-            if (booleanArray[i]) {
-                temp++
-                if (!booleanArray[i + 1]) {
-                    max = max.coerceAtLeast(temp)
-                    temp = 0
+        if(nums.isEmpty())
+            return 0
+        val set: HashSet<Int> = hashSetOf()
+        nums.forEach { set.add(it) }
+        var result = 1
+        nums.forEach {
+            run {
+                if (set.contains(it + 1) && !set.contains(it-1)) {
+                    var tempMax = 0
+                    var currentNumber = it
+                    while(set.contains(currentNumber)) {
+                        tempMax++
+                        currentNumber++
+                    }
+                    result = result.coerceAtLeast(tempMax)
                 }
             }
         }
-        return max
+        return result
     }
 }
 
 fun main() {
-    var longestConsecutiveSequence = LongestConsecutiveSequence()
+    val longestConsecutiveSequence = LongestConsecutiveSequence()
     println(longestConsecutiveSequence.longestConsecutive(intArrayOf(100, 4, 200, 1, 3, 2)))
 }
