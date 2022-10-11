@@ -1,8 +1,5 @@
 package com.burra.practice.blind75
 
-import java.util.LinkedList
-import java.util.Queue
-
 /**
  * Serialization is converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
 
@@ -30,44 +27,45 @@ The input tree is guaranteed to be a binary search tree.
  */
 class SerializeAndDeserializeBST {
     class TreeNode(var `val`: Int) {
-             var left: TreeNode? = null
-             var right: TreeNode? = null
-         }
+        var left: TreeNode? = null
+        var right: TreeNode? = null
+    }
+
+    private fun preOrderTraversal(root: TreeNode?, sb: StringBuilder) {
+        if (root == null) {
+            sb.append("n/")
+            return
+        }
+        sb.append(root.`val`).append("/")
+        preOrderTraversal(root.left, sb)
+        preOrderTraversal(root.right, sb)
+    }
 
     // Encodes a tree to a single string.
     fun serialize(root: TreeNode?): String {
-            var result = ""
-        serialize(root, result)
-        return result
-//        var result = ""
-//        if(root == null)
-//            return result
-//        var que: Queue<TreeNode> = LinkedList()
-//
-//        que.add(root)
-//        while (que.isNotEmpty()) {
-//            var temp = que.poll()
-//            if(temp == null) {
-//                result = result.plus(" ")
-//                continue
-//            }
-//            result  = result.plus(temp.`val`)
-//            que.add(temp.left)
-//            que.add(temp.right)
-//        }
-//        return result
+        var result = StringBuilder()
+        preOrderTraversal(root, result)
+        return result.toString()
     }
 
-    private fun serialize(root: TreeNode?, result: String) {
-        if(root == null){
-            return
+    private fun constructPreOrder(preOrder: List<String>, index: IntArray, size: Int): TreeNode? {
+        if (index[0] > size)
+            return null
+
+        if (preOrder[index[0]] == "n") {
+            index[0]++
+            return null
         }
+        var root = TreeNode(preOrder[index[0]].toInt())
+        index[0]++
+        root.left = constructPreOrder(preOrder, index, size)
+        root.right = constructPreOrder(preOrder, index, size)
+        return root
     }
 
     // Decodes your encoded data to tree.
     fun deserialize(data: String): TreeNode? {
-        if(data.isBlank())
-            return null
-
+        var preOrder = data.split("/")
+        return constructPreOrder(preOrder, intArrayOf(0), preOrder.size - 1)
     }
 }
