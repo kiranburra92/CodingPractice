@@ -57,5 +57,5 @@ class InsertInterval {
 
 fun main() {
     val insertInterval = InsertInterval()
-    insertInterval.insert(arrayOf(intArrayOf(1,3),intArrayOf(6,9)), intArrayOf(2,5))
+    insertInterval.insert(arrayOf(intArrayOf(1, 3), intArrayOf(6, 9)), intArrayOf(2, 5))
 }

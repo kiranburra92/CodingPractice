@@ -25,11 +25,12 @@ Output: [3,4,6,16,17]
  */
 class RunningSumof1dArray {
     fun runningSum(nums: IntArray): IntArray {
-        if(nums.isEmpty())
+        if (nums.isEmpty())
             return IntArray(0)
         val result = IntArray(nums.size)
         var sum = 0
-        nums.forEachIndexed { index, i ->  result[index] = sum + i
+        nums.forEachIndexed { index, i ->
+            result[index] = sum + i
             sum += i
         }
         return result

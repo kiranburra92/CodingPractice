@@ -29,7 +29,7 @@ class JumpGame {
     fun canJump(nums: IntArray): Boolean {
         var i = 0
         var maxReach = 0
-        while(i <= maxReach && i< nums.size){ // check i <= maxReach if we are in unreachable index since we are
+        while (i <= maxReach && i < nums.size) { // check i <= maxReach if we are in unreachable index since we are
             // moving linear
             maxReach = maxReach.coerceAtLeast(i + nums[i])
             i++

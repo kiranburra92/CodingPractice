@@ -42,17 +42,16 @@ class ThreeSum {
         val result = mutableSetOf<List<Int>>()
         Arrays.sort(nums)
 
-        for(i in 0..nums.size-2) {
-            var left = i+1
-            var right = nums.size-1
-            while(left < right) {
+        for (i in 0..nums.size - 2) {
+            var left = i + 1
+            var right = nums.size - 1
+            while (left < right) {
                 val sum = nums[i] + nums[left] + nums[right]
-                if(sum == 0) {
+                if (sum == 0) {
                     result.add(listOf(nums[i], nums[left], nums[right]))
                     left++
                     right--
-                }
-                else if(sum < 0)
+                } else if (sum < 0)
                     left++
                 else
                     right--

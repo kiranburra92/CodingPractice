@@ -36,7 +36,7 @@ class FindPivotIndex {
     fun pivotIndex(nums: IntArray): Int {
         var totalSum = nums.sum()
         var leftSum = 0
-        nums.forEachIndexed { index, i ->  }
+        nums.forEachIndexed { index, i -> }
         return 0
     }
 }

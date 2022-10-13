@@ -1,6 +1,6 @@
 package com.burra.practice.blind75
 
-import java.util.PriorityQueue
+import java.util.*
 
 /**
  * You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
@@ -44,15 +44,16 @@ class MergeKSortedLists {
     class ListNode(var `val`: Int) {
         var next: ListNode? = null
     }
+
     fun mergeKLists(lists: Array<ListNode?>): ListNode? {
-        val queue = PriorityQueue<ListNode> { l1, l2 -> l1.`val`.compareTo(l2.`val`)}
+        val queue = PriorityQueue<ListNode> { l1, l2 -> l1.`val`.compareTo(l2.`val`) }
         var dummy = ListNode(0)
         var current = dummy
 
         lists.forEach { queue.add(it) }
         while (queue.isNotEmpty()) {
             var temp = queue.poll()
-            if(temp.next != null) {
+            if (temp.next != null) {
                 queue.add(temp.next)
             }
             dummy.next = temp

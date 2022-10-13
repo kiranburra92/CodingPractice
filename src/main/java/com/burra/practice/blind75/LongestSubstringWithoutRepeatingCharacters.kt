@@ -1,7 +1,6 @@
 package com.burra.practice.blind75
 
-import java.util.LinkedList
-import java.util.Queue
+import java.util.*
 
 class LongestSubstringWithoutRepeatingCharacters {
     fun lengthOfLongestSubstring(s: String): Int {

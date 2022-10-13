@@ -25,17 +25,17 @@ Constraints:
 class LongestConsecutiveSequence {
 
     fun longestConsecutive(nums: IntArray): Int {
-        if(nums.isEmpty())
+        if (nums.isEmpty())
             return 0
         val set: HashSet<Int> = hashSetOf()
         nums.forEach { set.add(it) }
         var result = 1
         nums.forEach {
             run {
-                if (set.contains(it + 1) && !set.contains(it-1)) {
+                if (set.contains(it + 1) && !set.contains(it - 1)) {
                     var tempMax = 0
                     var currentNumber = it
-                    while(set.contains(currentNumber)) {
+                    while (set.contains(currentNumber)) {
                         tempMax++
                         currentNumber++
                     }

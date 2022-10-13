@@ -12,20 +12,20 @@ The test cases are generated so that the answer will be less than or equal to 2 
  */
 class UniquePaths {
     fun uniquePaths(m: Int, n: Int): Int {
-        val memory = Array(m+1) {IntArray(n+1)}
+        val memory = Array(m + 1) { IntArray(n + 1) }
         return uniquePaths(m, n, memory)
     }
 
     private fun uniquePaths(m: Int, n: Int, memory: Array<IntArray>): Int {
-        if(1 > m || 1 > n)
+        if (1 > m || 1 > n)
             return 0
-        if(1 == m && 1 == n)
+        if (1 == m && 1 == n)
             return 1
-        if(memory[m][n] != 0) {
+        if (memory[m][n] != 0) {
             return memory[m][n]
         }
 
-        memory[m][n] = uniquePaths(m-1, n, memory) + uniquePaths(m, n-1, memory)
+        memory[m][n] = uniquePaths(m - 1, n, memory) + uniquePaths(m, n - 1, memory)
         return memory[m][n]
     }
 }

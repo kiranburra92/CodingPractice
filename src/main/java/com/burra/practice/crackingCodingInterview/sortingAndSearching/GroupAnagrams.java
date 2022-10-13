@@ -1,11 +1,6 @@
 package com.burra.practice.crackingCodingInterview.sortingAndSearching;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 // Write method to sort an array of strings so that all anagrams are next to each other
 public class GroupAnagrams {

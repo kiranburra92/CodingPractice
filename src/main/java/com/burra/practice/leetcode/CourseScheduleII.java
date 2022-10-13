@@ -1,11 +1,6 @@
 package com.burra.practice.leetcode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1. You are given an array

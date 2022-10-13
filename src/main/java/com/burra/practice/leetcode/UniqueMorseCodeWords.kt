@@ -40,7 +40,34 @@ words[i] consists of lowercase English letters.
  */
 class UniqueMorseCodeWords {
     fun uniqueMorseRepresentations(words: Array<String>): Int {
-        val codes = arrayOf(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..")
+        val codes = arrayOf(
+            ".-",
+            "-...",
+            "-.-.",
+            "-..",
+            ".",
+            "..-.",
+            "--.",
+            "....",
+            "..",
+            ".---",
+            "-.-",
+            ".-..",
+            "--",
+            "-.",
+            "---",
+            ".--.",
+            "--.-",
+            ".-.",
+            "...",
+            "-",
+            "..-",
+            "...-",
+            ".--",
+            "-..-",
+            "-.--",
+            "--.."
+        )
         val mySet = mutableSetOf<String>()
 
         for (word in words) {

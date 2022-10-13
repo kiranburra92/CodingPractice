@@ -36,6 +36,7 @@ class BinaryTreeMaximumPathSum {
         var left: TreeNode? = null
         var right: TreeNode? = null
     }
+
     var max = Int.MIN_VALUE
     fun maxPathSum(root: TreeNode?): Int {
         helper(root)
@@ -43,7 +44,7 @@ class BinaryTreeMaximumPathSum {
     }
 
     private fun helper(root: TreeNode?): Int {
-        if(root == null)
+        if (root == null)
             return 0
         var left = Math.max(helper(root.left), 0)
         var right = Math.max(helper(root.right), 0)

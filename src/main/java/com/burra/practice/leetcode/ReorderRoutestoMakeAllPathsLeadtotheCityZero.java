@@ -1,11 +1,6 @@
 package com.burra.practice.leetcode;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
+import java.util.*;
 
 /**
  * There are n cities numbered from 0 to n - 1 and n - 1 roads such that there is only one way to travel between two

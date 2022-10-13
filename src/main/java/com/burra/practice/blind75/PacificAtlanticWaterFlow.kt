@@ -15,10 +15,10 @@ Example 1:
 
 
 Input: heights = [[1,2,2,3,5],
-                  [3,2,3,4,4],
-                  [2,4,5,3,1],
-                  [6,7,1,4,5],
-                  [5,1,1,2,4]]
+[3,2,3,4,4],
+[2,4,5,3,1],
+[6,7,1,4,5],
+[5,1,1,2,4]]
 Output: [[0,4],[1,3],[1,4],[2,2],[3,0],[3,1],[4,0]]
 
 Explanation: The following cells can flow to the Pacific and Atlantic oceans, as shown below:
@@ -54,23 +54,23 @@ n == heights[r].length
  */
 class PacificAtlanticWaterFlow {
     fun pacificAtlantic(heights: Array<IntArray>): List<List<Int>> {
-        var pacific = Array(heights.size){ BooleanArray(heights[0].size) }
-        var atlantic = Array(heights.size) {BooleanArray(heights[0].size)}
-        var result  = mutableListOf<List<Int>>()
-        for(i in heights.indices) {
-            for(j in heights[0].indices) {
-                if(i == 0 || j == 0){
-                    dfs(i, j, heights.size-1, heights[0].size-1, pacific, heights, 0)
+        var pacific = Array(heights.size) { BooleanArray(heights[0].size) }
+        var atlantic = Array(heights.size) { BooleanArray(heights[0].size) }
+        var result = mutableListOf<List<Int>>()
+        for (i in heights.indices) {
+            for (j in heights[0].indices) {
+                if (i == 0 || j == 0) {
+                    dfs(i, j, heights.size - 1, heights[0].size - 1, pacific, heights, 0)
                 }
-                if(i == heights.size-1 || j == heights[0].size-1) {
-                    dfs(i, j, heights.size-1, heights[0].size-1, atlantic, heights, 0)
+                if (i == heights.size - 1 || j == heights[0].size - 1) {
+                    dfs(i, j, heights.size - 1, heights[0].size - 1, atlantic, heights, 0)
                 }
             }
         }
 
-        for(i in heights.indices) {
+        for (i in heights.indices) {
             for (j in heights[0].indices) {
-                if(pacific[i][j] && atlantic[i][j]) {
+                if (pacific[i][j] && atlantic[i][j]) {
                     result.add(listOf(i, j))
                 }
             }
@@ -79,15 +79,23 @@ class PacificAtlanticWaterFlow {
 
     }
 
-    private fun dfs(row: Int, col: Int, rows:Int, cols: Int, visited: Array<BooleanArray>, heights: Array<IntArray>, prevHeight: Int){
-        if(row < 0 || col < 0 || row > rows || col > cols)
+    private fun dfs(
+        row: Int,
+        col: Int,
+        rows: Int,
+        cols: Int,
+        visited: Array<BooleanArray>,
+        heights: Array<IntArray>,
+        prevHeight: Int
+    ) {
+        if (row < 0 || col < 0 || row > rows || col > cols)
             return
-        if(heights[row][col] < prevHeight || visited[row][col])
+        if (heights[row][col] < prevHeight || visited[row][col])
             return
         visited[row][col] = true
-        dfs(row-1, col, rows, cols, visited, heights, heights[row][col])
-        dfs(row, col-1, rows, cols, visited, heights, heights[row][col])
-        dfs(row, col+1, rows, cols, visited, heights, heights[row][col])
-        dfs(row+1, col, rows, cols, visited, heights, heights[row][col])
+        dfs(row - 1, col, rows, cols, visited, heights, heights[row][col])
+        dfs(row, col - 1, rows, cols, visited, heights, heights[row][col])
+        dfs(row, col + 1, rows, cols, visited, heights, heights[row][col])
+        dfs(row + 1, col, rows, cols, visited, heights, heights[row][col])
     }
 }

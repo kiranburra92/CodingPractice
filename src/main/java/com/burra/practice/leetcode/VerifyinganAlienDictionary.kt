@@ -54,8 +54,13 @@ class VerifyinganAlienDictionary {
     }
 
 }
-    fun main() {
-        val verifyinganAlienDictionary = VerifyinganAlienDictionary()
-        println( verifyinganAlienDictionary.isAlienSorted(arrayOf("kuvp","q"),
-                "ngxlkthsjuoqcpavbfdermiywz"))
-    }
+
+fun main() {
+    val verifyinganAlienDictionary = VerifyinganAlienDictionary()
+    println(
+        verifyinganAlienDictionary.isAlienSorted(
+            arrayOf("kuvp", "q"),
+            "ngxlkthsjuoqcpavbfdermiywz"
+        )
+    )
+}
