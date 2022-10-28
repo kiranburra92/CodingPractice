@@ -7,12 +7,7 @@ class LongestSubstringWithoutRepeatingCharacters {
         val que: Queue<Char> = LinkedList()
         var result = 0
         s.forEach {
-            if (que.contains(it)) {
-                while (que.peek() != it) {
-                    que.poll()
-                }
-                que.poll()
-            }
+            if (que.contains(it)) while (que.poll() != it) {}
             que.add(it)
             result = result.coerceAtLeast(que.size)
         }

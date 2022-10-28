@@ -48,7 +48,9 @@ class DecodeWays {
         val memory = IntArray(s.length + 1)
         memory[0] = 1
         val w1 = traversCount(s, 1, s.substring(0, 1), memory)
-        val w2 = if (s.length > 1) traversCount(s, 2, s.substring(0, 2), memory) else 0
+        val w2 =
+            if (s.length > 1) traversCount(s, 2, s.substring(0, 2), memory)
+            else 0
         return w1 + w2
     }
 
@@ -61,7 +63,9 @@ class DecodeWays {
         if (memory[index] != 0)
             return memory[index]
         val w1 = traversCount(s, index + 1, s.substring(index, index + 1), memory)
-        val w2 = if (index < s.length - 1) traversCount(s, index + 2, s.substring(index, index + 2), memory) else 0
+        val w2 =
+            if (index < s.length - 1) traversCount(s, index + 2, s.substring(index, index + 2), memory)
+            else 0
 
         memory[index] = w1 + w2
         return memory[index]
