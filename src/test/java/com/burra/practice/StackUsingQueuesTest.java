@@ -1,5 +1,6 @@
 package com.burra.practice;
 
+import com.burra.practice.educative.StackUsingQueues;
 import org.junit.Test;
 
 public class StackUsingQueuesTest {

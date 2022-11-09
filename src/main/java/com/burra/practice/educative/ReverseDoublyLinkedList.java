@@ -1,52 +1,15 @@
-package com.burra.practice;
+package com.burra.practice.educative;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class InsertNodeInDoublyLinkedList {
-
-  // Complete the sortedInsert function below.
+public class ReverseDoublyLinkedList {
 
   private static final Scanner scanner = new Scanner(System.in);
 
-  /*
-   * For your reference:
-   *
-   * DoublyLinkedListNode {
-   *     int data;
-   *     DoublyLinkedListNode next;
-   *     DoublyLinkedListNode prev;
-   * }
-   *
-   */
-  static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
-    DoublyLinkedListNode node = new DoublyLinkedListNode(data);
-    DoublyLinkedListNode ref = head;
-    if (head == null) {
-      head = node;
-    } else if (head.data >= node.data) {
-      node.next = head;
-      head.prev = node;
-      head = node;
-    } else {
-      while (ref.next != null && ref.next.data < node.data) {
-        ref = ref.next;
-      }
-      node.next = ref.next;
-
-      if (ref.next != null) {
-        ref.next.prev = node;
-      }
-      node.prev = ref;
-      ref.next = node;
-
-    }
-    return head;
-  }
-
-  public static void printDoublyLinkedList(DoublyLinkedListNode node, String sep) throws IOException {
+  public static void printDoublyLinkedList(DoublyLinkedListNode node, String sep) {
     while (node != null) {
-      System.out.println(String.valueOf(node.data));
+      System.out.println(node.data);
 
       node = node.next;
 
@@ -55,6 +18,21 @@ public class InsertNodeInDoublyLinkedList {
       }
     }
   }
+
+  static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
+    DoublyLinkedListNode prev = null;
+
+    while (head != null) {
+      DoublyLinkedListNode next = head.next;
+      head.next = prev;
+      head.prev = next;
+      prev = head;
+      head = next;
+    }
+    return prev;
+  }
+
+  // Complete the reverse function below.
 
   public static void main(String[] args) throws IOException {
 
@@ -74,13 +52,11 @@ public class InsertNodeInDoublyLinkedList {
         llist.insertNode(llistItem);
       }
 
-      int data = scanner.nextInt();
-      scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-      DoublyLinkedListNode llist1 = sortedInsert(llist.head, data);
+      DoublyLinkedListNode llist1 = reverse(llist.head);
 
       printDoublyLinkedList(llist1, " ");
     }
+
     scanner.close();
   }
 
@@ -121,3 +97,4 @@ public class InsertNodeInDoublyLinkedList {
     }
   }
 }
+

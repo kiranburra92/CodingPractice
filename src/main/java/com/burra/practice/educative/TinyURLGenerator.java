@@ -1,4 +1,4 @@
-package com.burra.practice;
+package com.burra.practice.educative;
 
 /**
  * Assuming all the big urls are uniquely identified by Unique ID (Integer) from database. Tiny URL contains

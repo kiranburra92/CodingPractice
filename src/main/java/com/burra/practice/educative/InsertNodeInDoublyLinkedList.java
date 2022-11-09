@@ -1,15 +1,52 @@
-package com.burra.practice;
+package com.burra.practice.educative;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ReverseDoublyLinkedList {
+public class InsertNodeInDoublyLinkedList {
+
+  // Complete the sortedInsert function below.
 
   private static final Scanner scanner = new Scanner(System.in);
 
-  public static void printDoublyLinkedList(DoublyLinkedListNode node, String sep) {
+  /*
+   * For your reference:
+   *
+   * DoublyLinkedListNode {
+   *     int data;
+   *     DoublyLinkedListNode next;
+   *     DoublyLinkedListNode prev;
+   * }
+   *
+   */
+  static DoublyLinkedListNode sortedInsert(DoublyLinkedListNode head, int data) {
+    DoublyLinkedListNode node = new DoublyLinkedListNode(data);
+    DoublyLinkedListNode ref = head;
+    if (head == null) {
+      head = node;
+    } else if (head.data >= node.data) {
+      node.next = head;
+      head.prev = node;
+      head = node;
+    } else {
+      while (ref.next != null && ref.next.data < node.data) {
+        ref = ref.next;
+      }
+      node.next = ref.next;
+
+      if (ref.next != null) {
+        ref.next.prev = node;
+      }
+      node.prev = ref;
+      ref.next = node;
+
+    }
+    return head;
+  }
+
+  public static void printDoublyLinkedList(DoublyLinkedListNode node, String sep) throws IOException {
     while (node != null) {
-      System.out.println(node.data);
+      System.out.println(String.valueOf(node.data));
 
       node = node.next;
 
@@ -18,21 +55,6 @@ public class ReverseDoublyLinkedList {
       }
     }
   }
-
-  static DoublyLinkedListNode reverse(DoublyLinkedListNode head) {
-    DoublyLinkedListNode prev = null;
-
-    while (head != null) {
-      DoublyLinkedListNode next = head.next;
-      head.next = prev;
-      head.prev = next;
-      prev = head;
-      head = next;
-    }
-    return prev;
-  }
-
-  // Complete the reverse function below.
 
   public static void main(String[] args) throws IOException {
 
@@ -52,11 +74,13 @@ public class ReverseDoublyLinkedList {
         llist.insertNode(llistItem);
       }
 
-      DoublyLinkedListNode llist1 = reverse(llist.head);
+      int data = scanner.nextInt();
+      scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+      DoublyLinkedListNode llist1 = sortedInsert(llist.head, data);
 
       printDoublyLinkedList(llist1, " ");
     }
-
     scanner.close();
   }
 
@@ -97,4 +121,3 @@ public class ReverseDoublyLinkedList {
     }
   }
 }
-

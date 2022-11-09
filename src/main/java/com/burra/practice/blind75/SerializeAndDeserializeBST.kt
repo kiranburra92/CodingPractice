@@ -56,7 +56,7 @@ class SerializeAndDeserializeBST {
             index[0]++
             return null
         }
-        var root = TreeNode(preOrder[index[0]].toInt())
+        val root = TreeNode(preOrder[index[0]].toInt())
         index[0]++
         root.left = constructPreOrder(preOrder, index, size)
         root.right = constructPreOrder(preOrder, index, size)
@@ -65,7 +65,7 @@ class SerializeAndDeserializeBST {
 
     // Decodes your encoded data to tree.
     fun deserialize(data: String): TreeNode? {
-        var preOrder = data.split("/")
+        val preOrder = data.split("/")
         return constructPreOrder(preOrder, intArrayOf(0), preOrder.size - 1)
     }
 }

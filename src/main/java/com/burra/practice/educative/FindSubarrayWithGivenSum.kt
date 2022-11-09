@@ -1,4 +1,4 @@
-package com.burra.practice
+package com.burra.practice.educative
 
 object FindSubarrayWithGivenSum {
     fun printSubarray(arr: IntArray, sum: Int) {
