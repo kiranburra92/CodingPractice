@@ -9,7 +9,7 @@ class ReverseLinkedList {
         var dummyHead = head
         var newHead: ListNode? = null
         while (dummyHead != null) {
-            var temp = dummyHead.next
+            val temp = dummyHead.next
             dummyHead.next = newHead
             newHead = dummyHead
             dummyHead = temp

@@ -17,15 +17,15 @@ public class Palindrome {
     return true;
   }
 
-  private LinkedListNode reverse(LinkedListNode node) {
-    LinkedListNode head = null;
-    while (node != null) {
-      LinkedListNode temp = new LinkedListNode(node.data);
-      temp.next = head;
-      head = temp;
-      node = node.next;
+  private LinkedListNode reverse(LinkedListNode head) {
+    LinkedListNode newHead = null;
+    while (head != null) {
+      LinkedListNode temp = new LinkedListNode(head.data);
+      temp.next = newHead;
+      newHead = temp;
+      head = head.next;
     }
-    return head;
+    return newHead;
   }
 
   // travers till mid point while pushing to stack
